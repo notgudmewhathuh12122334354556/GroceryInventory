@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Grid Overlay</title>
+  <style>
+    /* Parent Container */
+    .grid-overlay-container {
+      position: relative; /* Enable absolute positioning for child elements */
+      width: 100%;
+      max-width: 600px;
+      aspect-ratio: 1; /* Make the container square */
+      margin: 0 auto;
+      display: grid;
+    }
+
+    /* Base Grid (Layer 1) */
+    .base-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 5px;
+      width: 100%; /* Ensure full width */
+      height: 100%; /* Ensure full height */
+      z-index: 1; /* Base layer */
+    }
+
+    .base-grid div {
+      background-color: lightblue;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2em;
+    }
+
+    /* Overlay Grid (Layer 2) */
+    .overlay-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 5px;
+      position: absolute; /* Overlay */
+      top: 0;
+      left: 0;
+      width: 100%; /* Match parent container */
+      height: 100%; /* Match parent container */
+      z-index: 2; /* Above base grid */
+    }
+
+    .overlay-grid div {
+      background-color: rgba(0, 0, 0, 0.3); /* Transparent overlay */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay-container">
+    <!-- Base Grid -->
+    <div class="base-grid">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+    </div>
+
+    <!-- Overlay Grid -->
+    <div class="overlay-grid">
+      <div>A</div>
+      <div>B</div>
+      <div>C</div>
+      <div>D</div>
+      <div>E</div>
+      <div>F</div>
+      <div>G</div>
+      <div>H</div>
+      <div>I</div>
+    </div>
+  </div>
+</body>
+</html>

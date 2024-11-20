@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Page</title>
+    <link rel="stylesheet" href="homePage.css">
+</head>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .nav-button {
+            background: #444;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .nav-button:hover {
+            background: #555;
+        }
+
+        /* Ad Boards */
+        .ad-board-container {
+            display: flex;
+            overflow: hidden;
+            height: 200px;
+            margin: 20px;
+        }
+        .ad-board {
+            flex: 1;
+            padding: 20px;
+            background-color: #ccc;
+            color: #333;
+            font-size: 1.2em;
+            text-align: center;
+            animation: scroll 5s linear infinite;
+        }
+        @keyframes scroll {
+            0% {transform: translateX(100%);}
+            100% {transform: translateX(-100%);}
+        }
+
+        /* Video Ad */
+        .video-ad {
+            margin: 20px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Login Modal */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        #login-modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+        #close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">MyLogo</div>
+        <nav>
+            <button class="nav-button" onclick="window.location.href='about.html'">About</button>
+            <button class="nav-button" onclick="window.location.href='product.html'">Product Information</button>
+            <button id="login-btn">Login</button>
+        </nav>
+    </header>
+
+    <!-- Ad Boards -->
+    <section class="ad-board-container">
+        <div class="ad-board" id="ad-board1">Ad Board 1</div>
+        <div class="ad-board" id="ad-board2">Ad Board 2</div>
+    </section>
+
+    <!-- Video Ad -->
+    <section class="video-ad">
+        <video autoplay muted loop>
+            <source src="ad.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </section>
+
+    <!-- Login Overlay -->
+    <div id="overlay"></div>
+    <div id="login-modal">
+        <button id="close-btn">&times;</button>
+        <h1>Log In</h1>
+        <form>
+            <input type="text" placeholder="Enter your Email" class="input-field"/>
+            <input type="password" placeholder="Enter your Password" class="input-field"/>
+            <input type="button" value="Log In" id="submit-btn"/>
+        </form>
+    </div>
+
+    <script src="homePage.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrollable Grid Inside Div</title>
+  <style>
+    /* Outer Container */
+    .container {
+      display: grid;
+/* Two-column layout */
+      gap: 10px;
+      height: 400px; /* Set height for demonstration */
+    }
+
+    /* Scrollable Div */
+    .scrollable {
+      overflow-y: auto; /* Enables vertical scrolling */
+      max-height: 100%; /* Restrict height */
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    /* Grid Inside Scrollable Div */
+    .scrollable-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Three columns */
+      grid-auto-rows: minmax(50px, auto); /* Dynamic rows */
+      gap: 5px;
+    }
+
+    /* Grid Items */
+    .grid-item {
+      background-color: lightblue;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #007BFF;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar or Extra Content -->
+    <div class="extra-content">
+      <p>This is extra content outside the scrollable area.</p>
+    </div>
+
+    <!-- Scrollable Grid Container -->
+    <div class="scrollable">
+      <div class="scrollable-grid">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item">Item 3</div>
+        <div class="grid-item">Item 4</div>
+        <div class="grid-item">Item 5</div>
+        <div class="grid-item">Item 6</div>
+        <div class="grid-item">Item 7</div>
+        <div class="grid-item">Item 8</div>
+        <div class="grid-item">Item 9</div>
+        <div class="grid-item">Item 10</div>
+        <div class="grid-item">Item 11</div>
+        <div class="grid-item">Item 12</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

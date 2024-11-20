@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrollable Grid Inside Div</title>
+</head>
+<body>
+  <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 10px; height: 400px;">
+    <!-- Sidebar or Extra Content -->
+    <div style="padding: 10px; border: 1px solid #ccc;">
+      <p>This is extra content outside the scrollable area.</p>
+    </div>
+
+    <!-- Scrollable Grid Container -->
+    <div style="overflow-y: auto; max-height: 100%; padding: 10px; border: 1px solid #ccc;">
+      <div style="
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(50px, auto);
+        gap: 5px;
+      ">
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 1</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 2</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 3</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 4</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 5</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 6</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 7</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 8</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 9</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 10</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 11</div>
+        <div style="background-color: lightblue; text-align: center; padding: 10px; border: 1px solid #007BFF; border-radius: 4px;">Item 12</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

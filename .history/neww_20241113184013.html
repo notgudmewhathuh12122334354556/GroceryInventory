@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Sales Monitoring Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f6f9;
+        }
+
+        .chart-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chart-container">
+    <canvas id="salesChart"></canvas>
+</div>
+
+<!-- Include Chart.js library -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Generate labels for each day of the month
+    const daysOfMonth = Array.from({length: 31}, (_, i) => `Day ${i + 1}`);
+
+    // Sample daily sales data for each day of a 31-day month
+    const dailySalesData = [
+        200, 180, 210, 230, 220, 250, 300, 310, 290, 280,
+        270, 260, 300, 320, 340, 310, 330, 300, 280, 270,
+        260, 250, 240, 230, 220, 210, 250, 270, 290, 310, 330
+    ];
+
+    const salesData = {
+        labels: daysOfMonth,
+        datasets: [{
+            label: 'Daily Sales ($)',
+            data: dailySalesData,
+            borderColor: '#4CAF50',
+            backgroundColor: 'rgba(76, 175, 80, 0.2)',
+            fill: true,
+            tension: 0.3,  // Makes the line smooth
+            pointBackgroundColor: '#4CAF50',
+            pointRadius: 4
+        }]
+    };
+
+    // Chart configuration
+    const config = {
+        type: 'line',
+        data: salesData,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top'
+                },
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: function(context) {
+                            return `$${context.raw.toLocaleString()}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Day of the Month'
+                    },
+                    ticks: {
+                        maxRotation: 45,
+                        minRotation: 45,
+                        autoSkip: true,
+                        maxTicksLimit: 15  // Limits number of days displayed to keep chart readable
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Sales ($)'
+                    },
+                    beginAtZero: true,
+                    ticks: {
+                        callback: function(value) {
+                            return '$' + value.toLocaleString();
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    // Render the chart
+    const salesChart = new Chart(
+        document.getElementById('salesChart'),
+        config
+    );
+</script>
+
+</body>
+</html>
